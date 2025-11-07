@@ -1,0 +1,20 @@
+CREATE PROCEDURE sp_RegistrarNuevaOrdenSintesis
+    @Id_Empleado INT,
+    @Id_Nanomaterial INT,
+    @Estado VARCHAR(50)
+AS
+BEGIN
+    SET NOCOUNT ON;
+    
+    BEGIN TRY
+        INSERT INTO Orden_Sintesis (Id_Empleado, Id_Nanomaterial, Precio_Total, Estado)
+        VALUES (@Id_Empleado, @Id_Nanomaterial, 0, @Estado);
+        
+        SELECT SCOPE_IDENTITY() AS Id_Orden;
+    END TRY
+    BEGIN CATCH
+        DECLARE @ErrorMessage NVARCHAR(4000) = ERROR_MESSAGE();
+        RAISERROR('Error al registrar la orden: %s', 16, 1, @ErrorMessage);
+    END CATCH
+END;
+GO
