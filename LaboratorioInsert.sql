@@ -1,3 +1,6 @@
+use Laboratorio;
+go
+
 INSERT INTO Rol (Nombre_Rol)
 VALUES
 ('Investigador'),
@@ -126,52 +129,55 @@ VALUES
 (20, 'Estante J2', 980, 200);
 GO
 
-INSERT INTO Orden_Sintesis (Fecha_Creacion, Id_Empleado, Id_Nanomaterial, Precio_Total, Estado)
+INSERT INTO Orden_Sintesis (Fecha_Creacion, Id_Empleado, Id_Nanomaterial, Estado)
 VALUES
-('2025-10-01', 1, 1, 1500.00, 'Pendiente'),
-('2025-10-03', 2, 2, 1800.00, 'Proceso'),
-('2025-10-05', 3, 3, 950.00, 'Finalizada'),
-('2025-10-07', 4, 4, 1200.00, 'Pendiente'),
-('2025-10-09', 5, 5, 2100.00, 'Aprobada'),
-('2025-10-11', 6, 6, 1700.00, 'Rechazada'),
-('2025-10-13', 7, 7, 1950.00, 'Pendiente'),
-('2025-10-15', 8, 8, 1100.00, 'Proceso'),
-('2025-10-17', 9, 9, 1250.00, 'Control de calidad'),
-('2025-10-19', 10, 10, 1450.00, 'Pendiente'),
-('2025-10-21', 11, 11, 2050.00, 'Pendiente'),
-('2025-10-23', 12, 12, 950.00, 'Aprobada'),
-('2025-10-25', 13, 13, 1300.00, 'Pendiente'),
-('2025-10-27', 14, 14, 1800.00, 'Proceso'),
-('2025-10-29', 15, 15, 1600.00, 'Rechazada'),
-('2025-10-31', 16, 16, 1150.00, 'Pendiente'),
-('2025-11-02', 17, 17, 1300.00, 'Control de calidad'),
-('2025-11-04', 18, 18, 1900.00, 'Pendiente'),
-('2025-11-06', 19, 19, 2200.00, 'Aprobada'),
-('2025-11-08', 20, 20, 1700.00, 'Pendiente');
+('2025-10-01', 1, 1, 'Pendiente'),
+('2025-10-03', 2, 2, 'Proceso'),
+('2025-10-05', 3, 3, 'Finalizada'),
+('2025-10-07', 4, 4, 'Pendiente'),
+('2025-10-09', 5, 5, 'Aprobada'),
+('2025-10-11', 6, 6, 'Rechazada'),
+('2025-10-13', 7, 7, 'Pendiente'),
+('2025-10-15', 8, 8, 'Proceso'),
+('2025-10-17', 9, 9, 'Control de calidad'),
+('2025-10-19', 10, 10, 'Pendiente'),
+('2025-10-21', 11, 11, 'Pendiente'),
+('2025-10-23', 12, 12, 'Aprobada'),
+('2025-10-25', 13, 13, 'Pendiente'),
+('2025-10-27', 14, 14, 'Proceso'),
+('2025-10-29', 15, 15, 'Rechazada'),
+('2025-10-31', 16, 16, 'Pendiente'),
+('2025-11-02', 17, 17, 'Control de calidad'),
+('2025-11-04', 18, 18, 'Pendiente'),
+('2025-11-06', 19, 19, 'Aprobada'),
+('2025-11-08', 20, 20, 'Pendiente');
+
 GO
 
-INSERT INTO Detalle_Orden_Reactivo (Id_Orden, Id_Reactivo, Cantidad_Usada)
+INSERT INTO Detalle_Orden_Reactivo (Id_Orden, Id_Reactivo, Cantidad_Usada, Precio_Total)
 VALUES
-(1, 1, 20.5),
-(2, 3, 35.0),
-(3, 5, 10.0),
-(4, 2, 15.0),
-(5, 4, 18.0),
-(6, 6, 25.0),
-(7, 7, 5.0),
-(8, 8, 30.0),
-(9, 9, 12.0),
-(10, 10, 8.0),
-(11, 11, 22.0),
-(12, 12, 14.0),
-(13, 13, 16.0),
-(14, 14, 19.0),
-(15, 15, 21.0),
-(16, 16, 17.0),
-(17, 17, 13.0),
-(18, 18, 20.0),
-(19, 19, 18.5),
-(20, 20, 25.0);
+(1, 1, 20.5, 2050),
+(2, 3, 35.0, 3500),
+(3, 5, 10.0, 1000),
+(4, 2, 15.0, 1500),
+(5, 4, 18.0, 1800),
+(6, 6, 25.0, 2500),
+(7, 7, 5.0, 500),
+(8, 8, 30.0, 3000),
+(9, 9, 12.0, 1200),
+(10, 10, 8.0, 800),
+(11, 11, 22.0, 2200),
+(12, 12, 14.0, 1400),
+(13, 13, 16.0, 1600),
+(14, 14, 19.0, 1900),
+(15, 15, 21.0, 2100),
+(16, 16, 17.0, 1700),
+(17, 17, 13.0, 1300),
+(18, 18, 20.0, 2000),
+(19, 19, 18.5, 1850),
+(20, 20, 25.0, 2500);
+
+
 GO
 
 INSERT INTO Mantenimiento (Id_Equipo, Fecha_Mantenimiento, Tipo, Descripcion, Id_Empleado)

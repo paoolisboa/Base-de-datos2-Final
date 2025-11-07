@@ -26,7 +26,7 @@ go
 create table Equipo(
 	Id_Equipo int identity(1,1) primary key,
 	Nombre_Equipo varchar (100) not null,
-	Estado varchar(50) check (Estado in ('Disponible', 'Mantenimiento', 'Dañado')) not null,
+	Estado varchar(50) check (Estado in ('Disponible', 'Mantenimiento', 'Daï¿½ado')) not null,
 	Fecha_Ulti_Mantenimiento date not null,
 	Fecha_Prox_Mantenimiento date not null
 );
@@ -57,7 +57,6 @@ create table Orden_Sintesis(
 	Fecha_Creacion date default getdate (),
 	Id_Empleado int not null,
 	Id_Nanomaterial int not null,
-	Precio_Total decimal(10,2) not null,
 	Estado varchar(50) check(Estado in ('Pendiente', 'Proceso', 'Finalizada', 'Control de calidad', 'Aprobada', 'Rechazada', 'Cancelada')) not null,
 	foreign key (Id_Empleado) references Empleado(Id_Empleado),
 	foreign key (Id_Nanomaterial) references Nanomaterial(Id_Nanomaterial)
@@ -81,6 +80,7 @@ create table Detalle_Orden_Reactivo(
 	Id_Orden int not null,
 	Id_Reactivo int not null,
 	Cantidad_Usada decimal (10,2) not null,
+	Precio_Total decimal(10,2) not null,
 	foreign key(Id_Orden) references Orden_Sintesis(Id_Orden),
 	foreign key(Id_Reactivo) references Reactivo(Id_Reactivo)
 );
@@ -99,7 +99,7 @@ create table Mantenimiento(
 
 go
 create table Control_Calidad(
-	Id_Control int identity(1,1) not null,
+	Id_Control int identity(1,1) primary key,
 	Id_Orden int not null,
 	Fecha_Analisis date default getdate(),
 	Resultado varchar(100) not null,
